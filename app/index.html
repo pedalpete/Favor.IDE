@@ -17,6 +17,7 @@
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/modern-touch.css">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
     <!-- endbuild -->
   </head>
   <body ng-app="favorIde">
@@ -44,6 +45,9 @@
     <![endif]-->
 
     <!-- build:js scripts/vendor.js -->
+    <script type="text/javascript" src="bower_components/ace-builds/src-min-noconflict/ace.js"></script>
+
+
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
@@ -51,9 +55,8 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-
-    <!-- didn't work with bower -->
         <script src="bower_components/socket.io-client/dist/socket.io.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular-ui-ace/ui-ace.js"></script>
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>

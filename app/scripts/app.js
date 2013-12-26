@@ -3,7 +3,8 @@
 var app = angular.module('favorIde', [
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'ui.ace'
 ]);
 app.config(function ($routeProvider) {
     $routeProvider
