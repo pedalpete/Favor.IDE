@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="styles/modern-touch.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/components.css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <!-- endbuild -->
   </head>
   <body ng-app="favorIde">
@@ -31,7 +32,7 @@
             <li class="active menu-level-0"><a ng-href="#">Home</a></li>
             <li class="menu-level-0"><a ng-href="#">About</a></li>
             <li class="menu-level-0"><a ng-href="#">Contact</a></li>
-            <li class="menu-level-0" ng-controller="DeviceCtrl"><a ng-href="#">{{devices.length}}<br/></a></li>
+          <!--  <li class="menu-level-0" ng-controller="DeviceCtrl"><a ng-href="#">{{devices.length}}<br/></a></li>-->
         </ul>
     </div>
     <div class="container" ng-view=""></div>
@@ -47,7 +48,9 @@
     <!-- build:js scripts/vendor.js -->
     <script type="text/javascript" src="bower_components/ace-builds/src-min-noconflict/ace.js"></script>
 
-
+    <script type="text/javascript">
+      var gui = require('nw.gui');
+    </script>
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
@@ -62,6 +65,20 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/devices/devicesCtrl.js"></script>
         <script src="scripts/devices/deviceSocketModel.js"></script>
+        <script src="scripts/filesystem/filesystemModel.js"></script>
+        <script src="scripts/filesystem/filesystemCtrl.js"></script>
+        <script src="vendor/angular-bootstrap-nav-tree/dist/abn_tree_directive.js"></script>
+
         <!-- endbuild -->
+
+        <script>
+         var Gaze = require('gaze').Gaze;
+         var gaze = new Gaze('**/*');
+
+         gaze.on('all', function(event, filepath) {
+           if (location)
+             location.reload();
+         });
+        </script>
 </body>
 </html>

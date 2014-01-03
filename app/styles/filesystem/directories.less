@@ -1,19 +1,3 @@
-.left-menu {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  bottom: 0px;
-  width: 40px;
-  background-color: grey;
-}
-.ace_editor {
-  box-sizing: border-box;
-  position: absolute;
-  top: 80px;
-  bottom: 10px;
-  right: 0px;
-  width: 90%;
-}
 /* 
    abn-tree.css
 
@@ -21,6 +5,9 @@
    for both Bootstrap 2 and Bootstrap 3
 
 */
+
+
+
 /* ------------------------------------------
 AngularJS Animations...
 
@@ -34,47 +21,65 @@ li.abn-tree-row.ng-enter {
   position: relative;
   display: block;
   opacity: 0;
-  max-height: 0px;
+  max-height:0px;
 }
 .abn-tree-animate-enter.abn-tree-animate-enter-active,
-li.abn-tree-row.ng-enter-active {
+li.abn-tree-row.ng-enter-active{
   opacity: 1;
-  max-height: 30px;
+  max-height:30px;
 }
+
 .abn-tree-animate-leave,
 li.abn-tree-row.ng-leave {
   transition: 200ms linear all;
   position: relative;
   display: block;
-  height: 30px;
+  height:30px;
   max-height: 30px;
   opacity: 1;
 }
 .abn-tree-animate-leave.abn-tree-animate-leave-active,
-li.abn-tree-row.ng-leave-active {
+li.abn-tree-row.ng-leave-active {  
   height: 0px;
-  max-height: 0px;
+  max-height:0px;
   opacity: 0;
 }
+
+
 /* 
 ------------------------------------------
 Angular 1.2.0 Animation 
 */
+
+
+.abn-tree-animate.ng-enter{
+
+}
+.abn-tree-animate.ng-enter{
+
+}
+
+
+
+
 /*
    end animation stuff
 -----------------------------------------
    begin normal css stuff
 */
-ul.abn-tree li.abn-tree-row {
+ul.abn-tree li.abn-tree-row {  
   padding: 0px;
-  margin: 0px;
+  margin:0px;
 }
+
 ul.abn-tree li.abn-tree-row a {
   padding: 3px 10px;
 }
+
 ul.abn-tree i.indented {
   padding: 2px;
 }
+
 .abn-tree {
   cursor: pointer;
 }
