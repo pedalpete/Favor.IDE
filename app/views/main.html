@@ -1,1 +1,8 @@
+<div class="left-menu">
+
+</div>
+<div class="file-navigator" ng-controller="FileSystemCtrl" >
+<input type="file" ng-model="path" ng-change="openFile()" nwdirectory />
+<abn-tree tree-data="explorer" on-select="tree_selected(branch)"></abn-tree>
+</div>
 <div ui-ace></div>
