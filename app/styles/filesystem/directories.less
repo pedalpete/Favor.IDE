@@ -1,3 +1,22 @@
+
+.file-navigator {
+  position: absolute;
+  left: 60px;
+  top: 0px;
+  bottom: 0px;
+  width: 0px;
+  background-color: @light-grey;
+  overflow: hidden;
+
+  input[type="file"]{
+    display: none;
+  }
+}
+
+.file-navigator.active {
+  width: 140px;
+}
+
 /* 
    abn-tree.css
 

@@ -1,8 +1,8 @@
-<div class="left-menu">
-
+<div class="left-menu" ng-controller="MenuCtrl">
+	<i ng-click="folder()">&#xf07c;</i>
 </div>
-<div class="file-navigator" ng-controller="FileSystemCtrl" >
-<input type="file" ng-model="path" ng-change="openFile()" nwdirectory />
-<abn-tree tree-data="explorer" on-select="tree_selected(branch)"></abn-tree>
+<div class="file-navigator" ng-controller="FileSystemCtrl" ng-class="{'active' : foldersVisible}" >
+	<input type="file" id="openFile" ng-model="path" ng-change="openFile()" nwdirectory />
+	<abn-tree tree-data="explorer" on-select="treeSelected(branch)"></abn-tree>
 </div>
 <div ui-ace></div>

@@ -1,10 +1,21 @@
+@font-face {
+  font-family: 'font-awesome';
+  src: url("font-awesome/fontawesome-webfont.eot");
+  src: url("font-awesome/fontawesome-webfont.woff") format("woff"), url("font-awesome/fontawesome-webfont.ttf") format("truetype"), url("font-awesome/fontawesome-webfont#fontawesome") format("svg");
+}
 .left-menu {
   position: absolute;
   left: 0px;
   top: 0px;
   bottom: 0px;
-  width: 40px;
-  background-color: grey;
+  width: 60px;
+  background-color: #404040;
+  color: #c0c0c0;
+}
+.left-menu i {
+  font-family: 'font-awesome';
+  font-size: 20pt;
+  padding: 15px;
 }
 .ace_editor {
   box-sizing: border-box;
@@ -13,6 +24,21 @@
   bottom: 10px;
   right: 0px;
   width: 90%;
+}
+.file-navigator {
+  position: absolute;
+  left: 60px;
+  top: 0px;
+  bottom: 0px;
+  width: 0px;
+  background-color: #c0c0c0;
+  overflow: hidden;
+}
+.file-navigator input[type="file"] {
+  display: none;
+}
+.file-navigator.active {
+  width: 140px;
 }
 /* 
    abn-tree.css

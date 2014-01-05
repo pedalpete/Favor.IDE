@@ -30,7 +30,7 @@ module.exports = function (grunt) {
     watch: {
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js','<%= yeoman.app %>/styles/{,*/}*.less'],
-        tasks: ['newer:jshint:all'],
+        tasks: ['newer:jshint:all', 'less'],
         options: {
           livereload: true
         }
@@ -39,11 +39,12 @@ module.exports = function (grunt) {
         files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'karma']
       },
-      styles: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.css','<%= yeoman.app %>/vendor/{,*/}*.less'],
+      less: {
+        files: ['<%= yeoman.app %>/styles/{,*/}*.*','<%= yeoman.app %>/vendor/{,*/}*.less'],
         tasks: ['less','newer:copy:styles', 'autoprefixer'],
         options: {
-          nospawn: true
+          nospawn: true,
+          livereload: true
         }
       },
       gruntfile: {
@@ -55,7 +56,7 @@ module.exports = function (grunt) {
         },
         files: [
           '<%= yeoman.app %>/{,*/}*.html',
-          '.tmp/styles/{,*/}*.css',
+          '<%= yeoman.app %>/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
@@ -136,9 +137,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '.tmp/styles/',
+          cwd: '<%= yeoman.app %>/app/styles/',
           src: '{,*/}*.css',
-          dest: '.tmp/styles/'
+          dest: '<%= yeoman.app %>/app/styles/'
         }]
       }
     },
@@ -273,7 +274,7 @@ module.exports = function (grunt) {
       styles: {
         expand: true,
         cwd: '<%= yeoman.app %>/styles',
-        dest: '.tmp/styles/',
+        dest: '<%= yeoman.app %>/styles/',
         src: '{,*/}*.css'
       }
     },
@@ -330,11 +331,11 @@ module.exports = function (grunt) {
     less: {
       development: {
         options: {
-          paths: ['./app/vendor/modern-touch-less']
+          paths: ['<%= yeoman.app %>/vendor/modern-touch-less','<%= yeoman.app %>/styles']
         },
         files: {
-          './app/styles/modern-touch.css':'./app/vendor/modern-touch-less/style.less',
-          './app/styles/components.css':'./app/styles/components.less'
+          '<%= yeoman.app %>/styles/modern-touch.css':'<%= yeoman.app %>/vendor/modern-touch-less/style.less',
+          '<%= yeoman.app %>/styles/components.css':'<%= yeoman.app %>/styles/components.less'
         }
       }
     },
@@ -370,7 +371,7 @@ module.exports = function (grunt) {
       'connect:livereload',
       'watch',
       'karma'
-    ]);
+    ]);Z
   });
 
   grunt.registerTask('server', function () {

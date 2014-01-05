@@ -29,7 +29,7 @@ module.exports = function (grunt) {
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       js: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.js','<%= yeoman.app %>/styles/{,*/}*.less'],
+        files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
         tasks: ['newer:jshint:all'],
         options: {
           livereload: true
@@ -40,10 +40,11 @@ module.exports = function (grunt) {
         tasks: ['newer:jshint:test', 'karma']
       },
       styles: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.css','<%= yeoman.app %>/vendor/modern-touch-less/{,*/}*.less'],
+        files: ['<%= yeoman.app %>/styles/{,*/}*.less','<%= yeoman.app %>/vendor/modern-touch-less/{,*/}*.less'],
         tasks: ['less','newer:copy:styles', 'autoprefixer'],
         options: {
-          nospawn: true
+          nospawn: true,
+          livereload: true
         }
       },
       gruntfile: {
