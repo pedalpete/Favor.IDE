@@ -5,4 +5,8 @@
 	<input type="file" id="openFile" ng-model="path" ng-change="openFile()" nwdirectory />
 	<abn-tree tree-data="explorer" on-select="treeSelected(branch)"></abn-tree>
 </div>
-<div ui-ace></div>
+<div ng-controller="OpenFilesCtrl">
+	<div ng-controller="EditorCtrl" class="editor_ctrl">
+		<div ui-ace="aceOption" ng-model="fileContent"></div>
+	</div>
+</div>

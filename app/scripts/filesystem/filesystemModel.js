@@ -1,6 +1,5 @@
 'use strict';
 app.factory('FileSystemModel',function($rootScope){
-	var fs = require('fs');
 	var tree_list = [];
 	var FileSystemObj = {};
 
@@ -61,5 +60,6 @@ app.factory('FileSystemModel',function($rootScope){
 	FileSystemObj.folderVisibility = function(){
 		return folders_visible;
 	}
+
 	return FileSystemObj;
 });

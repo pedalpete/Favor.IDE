@@ -1,5 +1,5 @@
 'use strict';
-app.controller('FileSystemCtrl',function($scope, FileSystemModel){
+app.controller('FileSystemCtrl',function($scope, FileSystemModel, FileModel){
 
 	$scope.explorer=[];
 
@@ -21,13 +21,12 @@ app.controller('FileSystemCtrl',function($scope, FileSystemModel){
 			});
 		}
 		if(!branch.isDirectory){
-			fileSystemModel.openFile(branch.path);
+			FileModel.openFile(branch.path);
 		}
 	}
 
 	$scope.$on('viewFoldersChanged',function(){
 		$scope.foldersVisible = FileSystemModel.folderVisibility();
-		console.log($scope.foldersVisible);
 	});
 
 	

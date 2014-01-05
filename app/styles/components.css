@@ -17,13 +17,19 @@
   font-size: 20pt;
   padding: 15px;
 }
-.ace_editor {
-  box-sizing: border-box;
+.editor_ctrl {
   position: absolute;
-  top: 80px;
-  bottom: 10px;
+  top: 0px;
   right: 0px;
-  width: 90%;
+  bottom: 0px;
+  left: 200px;
+  font-family: monospace;
+}
+.editor_ctrl .ace_editor {
+  height: 100%;
+}
+.editor_ctrl .ace_editor div {
+  font: inherit!important;
 }
 .file-navigator {
   position: absolute;

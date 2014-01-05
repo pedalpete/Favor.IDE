@@ -46,10 +46,16 @@
     <![endif]-->
 
     <!-- build:js scripts/vendor.js -->
-    <script type="text/javascript" src="bower_components/ace-builds/src-min-noconflict/ace.js"></script>
+    <script type="text/javascript" src="bower_components/ace-builds/src-min-noconflict/ace.js" data-ace-base="src" charset="utf-8"></script>
 
     <script type="text/javascript">
       var gui = require('nw.gui');
+      var fs = require('fs');
+
+      ace.config.set('basePath','bower_components/ace-builds/src-min-noconflict');
+      ace.config.set('modePath','bower_components/ace-builds/src-min-noconflict');
+      ace.config.set('themePath','bower_components/ace-builds/src-min-noconflict');
+      ace.config.set('workerPath','bower_components/ace-builds/src-min-noconflict');
     </script>
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
@@ -58,16 +64,20 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-        <script src="bower_components/socket.io-client/dist/socket.io.min.js"></script>
-        <script type="text/javascript" src="bower_components/angular-ui-ace/ui-ace.js"></script>
+      <!--  <script src="bower_components/socket.io-client/dist/socket.io.min.js"></script>-->
+        <script type="text/javascript" src="bower_components/angular-ui-ace/ui-ace.js"  data-ace-base="src" charset="utf-8"></script>
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/devices/devicesCtrl.js"></script>
         <script src="scripts/devices/deviceSocketModel.js"></script>
         <script src="scripts/filesystem/filesystemModel.js"></script>
+        <script src="scripts/file/fileModel.js"></script>
+        <script src="scripts/file/openFilesModel.js"></script>
+        <script src="scripts/file/openFilesCtrl.js"></script>
         <script src="scripts/filesystem/filesystemCtrl.js"></script>
         <script src="scripts/menu/menuCtrl.js"></script>
+        <script src="scripts/editor/editorCtrl.js"></script>
         <script src="vendor/angular-bootstrap-nav-tree/dist/abn_tree_directive.js"></script>
 
         <!-- endbuild -->
