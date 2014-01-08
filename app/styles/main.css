@@ -11,10 +11,15 @@
   padding-bottom: 19px;
 }
 
-.container {
+.ide-container {
   position: absolute;
-  top: 80px;
+  top: 30px;
   left: 0px;
   bottom: 0px;
   right: 0px;
 }
+
+.hide {
+  display: none;
+}
+

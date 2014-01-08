@@ -1,12 +1,11 @@
 'use strict';
 
-app.controller('EditorCtrl', function ($scope, FileSystemModel, FileModel) {
+app.controller('EditorCtrl', function ($scope, FileModel) {
 	$scope.aceOption={
 		mode:'javascript'
 	}
 
-	$scope.fileContent="this is some test content";
-	$scope.$on('fileContentChanged',function(){
-		$scope.fileContent = FileModel.fileContent();
+	$scope.$on('fileContentChanged',function(event, file){
+		$scope.$apply();
 	});
 });

@@ -3,12 +3,15 @@
   src: url("font-awesome/fontawesome-webfont.eot");
   src: url("font-awesome/fontawesome-webfont.woff") format("woff"), url("font-awesome/fontawesome-webfont.ttf") format("truetype"), url("font-awesome/fontawesome-webfont#fontawesome") format("svg");
 }
-.left-menu {
+.FillParent {
   position: absolute;
-  left: 0px;
   top: 0px;
   bottom: 0px;
-  width: 60px;
+  left: 0px;
+  right: 0px;
+}
+.left-menu {
+  height: 100%;
   background-color: #404040;
   color: #c0c0c0;
 }
@@ -17,34 +20,29 @@
   font-size: 20pt;
   padding: 15px;
 }
-.editor_ctrl {
+.openFiles {
+  height: 100%;
+  position: relative;
+}
+.openFiles .editor_ctrl {
+  display: none;
   position: absolute;
   top: 0px;
-  right: 0px;
   bottom: 0px;
-  left: 200px;
-  font-family: monospace;
+  left: 0px;
+  right: 0px;
+  top: 35px;
 }
-.editor_ctrl .ace_editor {
-  height: 100%;
-}
-.editor_ctrl .ace_editor div {
-  font: inherit!important;
+.openFiles .editor_ctrl.active {
+  display: block;
 }
 .file-navigator {
-  position: absolute;
-  left: 60px;
-  top: 0px;
-  bottom: 0px;
-  width: 0px;
+  height: 100%;
   background-color: #c0c0c0;
   overflow: hidden;
 }
 .file-navigator input[type="file"] {
   display: none;
-}
-.file-navigator.active {
-  width: 140px;
 }
 /* 
    abn-tree.css

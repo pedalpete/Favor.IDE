@@ -1,17 +1,12 @@
-
-.editor_ctrl {
-	position: absolute;
-	top: 0px;
-	right: 0px;
-	bottom: 0px;
-	left: 200px;
-	font-family: monospace;
-
-	.ace_editor {
-		height: 100%;
+.openFiles {
+	height: 100%;
+	position: relative;
+	.editor_ctrl {	
+		display: none;
+		.FillParent;
+		top: 35px;
 	}
-
-	.ace_editor div {
-		font: inherit!important;
+	.editor_ctrl.active {
+		display: block;
 	}
 }

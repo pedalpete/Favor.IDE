@@ -15,7 +15,11 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="styles/modern-touch.css">
+    <link href="styles/bootflat/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="styles/bootflat/css/font-awesome.min.css" rel="stylesheet" media="screen">
+    <link href="styles/bootflat/css/bootflat.css" rel="stylesheet" media="screen">
+    <link href="styles/bootflat/css/bootflat-extensions.css" rel="stylesheet" media="screen">
+    <link href="styles/bootflat/css/bootflat-square.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/components.css">
    
@@ -27,17 +31,8 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="topmenu">
-        <ul class="dropdown clearfix boxed boxed-blue">
-            <li class="active menu-level-0"><a ng-href="#">Home</a></li>
-            <li class="menu-level-0"><a ng-href="#">About</a></li>
-            <li class="menu-level-0"><a ng-href="#">Contact</a></li>
-          <!--  <li class="menu-level-0" ng-controller="DeviceCtrl"><a ng-href="#">{{devices.length}}<br/></a></li>-->
-        </ul>
-    </div>
-    <div class="container" ng-view=""></div>
 
-
+    <div class="ide-container row" ng-view=""></div>
    
 
     <!--[if lt IE 9]>
@@ -46,6 +41,7 @@
     <![endif]-->
 
     <!-- build:js scripts/vendor.js -->
+
     <script type="text/javascript" src="bower_components/ace-builds/src-min-noconflict/ace.js" data-ace-base="src" charset="utf-8"></script>
 
     <script type="text/javascript">
@@ -58,10 +54,13 @@
       ace.config.set('workerPath','bower_components/ace-builds/src-min-noconflict');
     </script>
     <!-- bower:js -->
+    <script src="bower_components/jquery/jquery.min.js"></script>
+    <script src="bower_components/jquery-ui/ui/minified/jquery-ui.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-ui-sortable/src/sortable.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
       <!--  <script src="bower_components/socket.io-client/dist/socket.io.min.js"></script>-->
@@ -82,14 +81,6 @@
 
         <!-- endbuild -->
 
-        <script>
-         var Gaze = require('gaze').Gaze;
-         var gaze = new Gaze('**/*');
-
-         gaze.on('all', function(event, filepath) {
-           if (location)
-             location.reload();
-         });
-        </script>
+    
 </body>
 </html>

@@ -5,7 +5,8 @@ var app = angular.module('favorIde', [
   'ngSanitize',
   'ngRoute',
   'ui.ace',
-  'angularBootstrapNavTree'
+  'angularBootstrapNavTree',
+  'ui.sortable'
 ]);
 app.config(function ($routeProvider) {
     $routeProvider

@@ -2,19 +2,28 @@
 
 app.factory('FileModel',function($rootScope){
 	
-	var fileContent = '';
+	var fileContent, fileName, filePath;
+
 	FileObj = {};
 	FileObj.openFile = function(path){
 		fs.readFile(path,"utf-8",function(err,data){
 			if(err) return console.log(data);
 			fileContent = data;
-			$rootScope.$broadcast('fileContentChanged');
+			fileName = path.replace(/^.*[\\\/]/, '');
+			filePath = path;
+			$rootScope.$broadcast('fileContentChanged',FileObj.file());
 		});
 	}
 
-	FileObj.fileContent = function(){
-		return fileContent;
+	FileObj.file = function(){
+		return {
+			content: fileContent,
+			name: fileName,
+			path: filePath,
+			active: false
+		};
 	}
+
 
 	return FileObj;
 });
