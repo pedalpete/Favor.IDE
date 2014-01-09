@@ -25,9 +25,19 @@ app.controller('FileSystemCtrl',function($scope, FileSystemModel, FileModel){
 		}
 	}
 
+	$scope.fileSaveAs = function(){
+		FileSystemModel.saveFile($scope.savePath, $scope.fileToSave);
+		$scope.savePath='';
+		$scope.fileToSave='';
+	}
+	$scope.$on('saveAs', function(event,file){
+		$scope.fileToSave = file;
+		document.getElementById('saveFile').click();
+	});
+
+
 	$scope.$on('viewFoldersChanged',function(){
 		$scope.foldersVisible = FileSystemModel.folderVisibility();
 	});
 
-	
 });

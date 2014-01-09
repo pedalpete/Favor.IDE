@@ -1,11 +1,22 @@
 'use strict';
 
-app.controller('EditorCtrl', function ($scope, FileModel) {
+app.controller('EditorCtrl', function ($scope, FileModel, OpenFilesModel) {
 	$scope.aceOption={
-		mode:'javascript'
+		mode:'javascript',
+		onLoad: function(_ace){
+			FileModel.ace(_ace);
+		}
+	}
+
+	$scope.close = function(file){
+		OpenFilesModel.close(file);
 	}
 
 	$scope.$on('fileContentChanged',function(event, file){
-		$scope.$apply();
+		$scope.content = file.content;
+		if(!file.created_new) return $scope.$apply(); //scope needs updating on opened files.
+		return;
 	});
+
+	
 });

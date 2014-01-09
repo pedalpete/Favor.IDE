@@ -61,5 +61,21 @@ app.factory('FileSystemModel',function($rootScope){
 		return folders_visible;
 	}
 
+
+	FileSystemObj.saveFile = function(path, file){
+		fs.writeFile(path, file.content , function(err) {
+		    if(err) {
+		        console.log(err);
+		    } else {
+		      	file.last_save=file.content;
+		        if(file.path===''){
+		        	file.path=path;
+		        	file.name=path.replace(/^.*[\\\/]/, '');
+		        }
+		        if(file.close_after_save) $rootScope.$broadcast('closeFile',file);
+		    }
+		}); 
+	}
+
 	return FileSystemObj;
 });
