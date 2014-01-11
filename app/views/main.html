@@ -6,11 +6,10 @@
 	<input type="file" id="saveFile" class="hide" ng-model="savePath" nwsaveas ng-change="fileSaveAs()"/>
 	<abn-tree tree-data="explorer" on-select="treeSelected(branch)"></abn-tree>
 </div>
-<div ng-controller="OpenFilesCtrl" class='openFiles col-sm-8'>	
+<div ng-controller="OpenFilesCtrl" class='openFiles col-sm-8 on-focus'>	
 	<ul ui-sortable="sortableOptions" ng-model="files" class="nav nav-tabs" >
 			<li ng-repeat="file in files" ng-controller="EditorCtrl" ng-model="file" ng-click="setActive(file)"ng-class={'active':file.active}>
 				<a class="tab-default"  data-toggle="tab" >{{file.name || 'untitled'}} <span ng-click="close(file)">x</span></a>
-
 			</li>
 	<li style="float: left;" class="disabled" ng-click="newFile()">+</li>
 	</ul>

@@ -35,6 +35,25 @@ app.factory('FileModel',function($rootScope){
 		return new Date().setHours(0,0,0,0);
 	}
 
+	function unbindKeybindings(command){
+		var remove_bindings=['A','F','H'];
+		for(var k in remove_bindings){
+			var binding = remove_bindings[k];
+			command.addCommands([{
+				name: 'unBind-Ctrl-'+binding,
+				bindKey: {
+					win: 'Ctrl-'+binding,
+					mac: 'Command-'+binding
+				},
+				exec: function(editor, line){
+					return;
+				},
+				readOnly: true
+			}]);
+		}
+	}
+
+
 	FileObj.file = function(){
 		return fileMeta;
 	}
@@ -43,6 +62,7 @@ app.factory('FileModel',function($rootScope){
 		if(!fileMeta){
 			fileMeta = createFileMeta('','');
 		}
+		unbindKeybindings(_ace.commands);
 		fileMeta.ace = _ace;
 		return;
 	}

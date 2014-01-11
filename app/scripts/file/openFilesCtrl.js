@@ -18,6 +18,16 @@ app.controller('OpenFilesCtrl',function($scope, OpenFilesModel, FileModel){
 		OpenFilesModel.openFile(file);
 	};
 
+	function testD(click, parent_evt, e){
+		alert('test')
+	}
+	$scope.keyBindings = {
+		'ctrl-S': testD
+	}
+
+	$scope.clickBindings = {
+
+	}
 	$scope.$on('fileContentChanged',function(event,file){
 		OpenFilesModel.openFile(file);
 	});
@@ -26,9 +36,10 @@ app.controller('OpenFilesCtrl',function($scope, OpenFilesModel, FileModel){
 		OpenFilesModel.close(file);
 	});
 
-
 	$scope.$on('updateOpenFiles',function(event,files){
 		$scope.files = files;
 		$scope.$apply();
 	});
+
+	$scope.$
 });
