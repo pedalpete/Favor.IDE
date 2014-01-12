@@ -14,7 +14,7 @@ app.controller('EditorCtrl', function ($scope, FileModel, OpenFilesModel) {
 
 	$scope.$on('fileContentChanged',function(event, file){
 		$scope.content = file.content;
-		if(!file.created_new) return $scope.$apply(); //scope needs updating on opened files.
+		if(!$scope.$$phase) return $scope.$apply(); //scope needs updating on opened files.
 		return;
 	});
 

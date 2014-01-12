@@ -9,14 +9,14 @@ app.factory('FileModel',function($rootScope){
 		fs.readFile(path,"utf-8",function(err,data){
 			if(err) return console.log(data);
 			fileMeta = createFileMeta(path,data);
-			$rootScope.$broadcast('fileContentChanged',FileObj.file());
+			$rootScope.$broadcast('fileContentChanged', false,FileObj.file());
 		});
 	}
 
 	FileObj.createFile = function(content){
 		fileMeta = createFileMeta('', content || '');
-		fileMeta.created_new = new Date().getTime();
-		$rootScope.$broadcast('fileContentChanged',FileObj.file());
+		fileMeta.created_new = getTime();
+		$rootScope.$broadcast('fileContentChanged',false, FileObj.file());
 		return;
 	}
 
@@ -32,7 +32,7 @@ app.factory('FileModel',function($rootScope){
 	}
 
 	function getTime(){
-		return new Date().setHours(0,0,0,0);
+		return new Date().getTime().toString();
 	}
 
 	function unbindKeybindings(command){

@@ -3,62 +3,72 @@
 app.factory('OpenFilesModel',function($rootScope, $q){
 	
 	var files = [];
+	var activeFiles = [];
 	var OpenFilesObj={};
 
 
 
 	function changeActive(setActive){ // remove active files and set new active files
 		angular.forEach(files, function(a){
-			a.active=false;
+			if(findFileIdx(a,setActive).length===1){
+				a.active=true;
+			} else {
+				a.active=false;
+			}
 		});
-		angular.forEach(setActive, function(i){
-			files[i].active=true;
-		});
-		return files;
+		$rootScope.$broadcast('updateActiveFiles',activeFiles)
+		return ;
 	}
 
-	function findFile(file){
-		return $.map(files, function(f,i){	
-			if(f.path === file.path || f.opened_at == file.opened_at){
+	function findMatchingFile(a,b){
+		return (a.path!='' && a.path === b.path || a.opened_at == b.opened_at);
+			
+	}
+	function findFileIdx(file, fileArray){
+		return $.map(fileArray, function(f,i){
+			if(findMatchingFile(f,file)){
 				return i;
-			};
+			}
 		});
 	}
 
 	function closeFile(file){
-		var idx = findFile(file);
+		var idx = findFileIdx(file, files);
 		if(idx.length === 0){
 			console.log("something went wrong, couldn't find file to close");
 			return;
 		} else {
-			angular.forEach(idx,function(i){
-				files.splice(i,1);
-				if(file.active===true && files.length>0){
-			   	 console.log(i<files.length ? [i] : [i-1]);
-					changeActive(i<files.length ? [i] : [i-1]);
-				}
-			});
+			var i = idx[0];
+			files.splice(i,1);
+			if(file.active===true && files.length>0){
+				changeActive(i<files.length ? [i] : [i-1]);
+			}
 		}
 
 		$rootScope.$broadcast('updateOpenFiles',files);
 
  	}
 
-	OpenFilesObj.openFile = function(file){
-		var isOpen = findFile(file);
+	OpenFilesObj.openFile = function(multi,file){
+		var isOpen = findFileIdx(file, files);
 		if(isOpen.length === 0){ //file was not found in array of open files
 			files.push(file);
 			isOpen.push(files.length-1);
 		}
-		return changeActive(isOpen);
+		if(multi==='click' || !multi) return changeActive(activeFiles=[file]);
+		activeFiles.push(file);
+		if(multi==='ctrl-click') return changeActive(activeFiles);
 	}
 
 	OpenFilesObj.files = function(){
 		return files;
 	}
 
-	OpenFilesObj.setActive = function(file){
-		return changeActive(file);
+	OpenFilesObj.activeFiles = function(){
+		return activeFiles;
+	}
+	OpenFilesObj.setActive = function(files){
+		return changeActive(files);
 	}
 
 	OpenFilesObj.close = function(file){

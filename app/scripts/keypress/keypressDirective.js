@@ -2,7 +2,7 @@ angular.module('favor-keypress', []).directive('keypressEvents',
   function($document, $rootScope) {
     return {
       restrict: 'A',
-      link: function() {
+      link: function(scope) {
         var keysByCode = {
           8: 'backspace',
           9: 'I',
@@ -40,20 +40,17 @@ angular.module('favor-keypress', []).directive('keypressEvents',
           if(getKeyByCode(e.which)) return keys+getKeyByCode(e.which)
           return keys+String.fromCharCode(e.which+64);
         }
-        $document.bind('keypress', function(e) {
+        $document.bind('favor-keypress', function(e) {
           var keys=keyCombo(e);
-          console.log(e.which, String.fromCharCode(e.which+64))
           if(keys.length>0){
-            $rootScope.$broadcast('keypress', e, keys);
+            $rootScope.$broadcast('favor-keypress', e, keys);
           }
         });
 
-        $document.bind('click', function(e){
+        scope.favorClick = function(e,data){
           var keys = getCtrlKeys(e);
-          if(keys.length>0){
-            $rootScope.$broadcast('clickAction', e, keys+'click');
-          }
-        });
+          $rootScope.$broadcast('favor-click', e, keys+'click', data);
+        };
       }
     }
   }

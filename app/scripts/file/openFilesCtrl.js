@@ -3,8 +3,8 @@
 app.controller('OpenFilesCtrl',function($scope, OpenFilesModel, FileModel){
 
 	$scope.files = OpenFilesModel.files();
-
-
+	$scope.activeFiles = OpenFilesModel.activeFiles();
+	$scope.multi = 'multi-'+$scope.activeFiles.length;
 	$scope.newFile = function(){
 		FileModel.createFile();
 		return;
@@ -14,22 +14,18 @@ app.controller('OpenFilesCtrl',function($scope, OpenFilesModel, FileModel){
 		items: "li:not(.disabled)"
 	}
 
-	$scope.setActive = function(file){
-		OpenFilesModel.openFile(file);
+	$scope.setActive = function(click,file){
+		OpenFilesModel.openFile(click,file);
 	};
 
-	function testD(click, parent_evt, e){
-		alert('test')
-	}
-	$scope.keyBindings = {
-		'ctrl-S': testD
+	$scope.favorFocusBindings = {
+		'click': $scope.setActive,
+		'ctrl-click': $scope.setActive
 	}
 
-	$scope.clickBindings = {
 
-	}
-	$scope.$on('fileContentChanged',function(event,file){
-		OpenFilesModel.openFile(file);
+	$scope.$on('fileContentChanged',function(event,multi,file){
+		OpenFilesModel.openFile(multi,file);
 	});
 
 	$scope.$on('closeFile',function(event,file){
@@ -38,8 +34,10 @@ app.controller('OpenFilesCtrl',function($scope, OpenFilesModel, FileModel){
 
 	$scope.$on('updateOpenFiles',function(event,files){
 		$scope.files = files;
-		$scope.$apply();
 	});
 
-	$scope.$
+	$scope.$on('updateActiveFiles',function(event,files){
+		$scope.activeFiles = files;
+		console.log($scope.activeFiles);
+	});
 });

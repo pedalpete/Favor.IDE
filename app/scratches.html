@@ -20,6 +20,8 @@
     <link href="styles/bootflat/css/bootflat.css" rel="stylesheet" media="screen">
     <link href="styles/bootflat/css/bootflat-extensions.css" rel="stylesheet" media="screen">
     <link href="styles/bootflat/css/bootflat-square.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="bower_components/angular-ui-layout/ui-layout.css"/>
+
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/components.css">
    
@@ -32,7 +34,14 @@
 
     <!-- Add your site or application content here -->
 
-    <div class="ide-container row" ng-view=""></div>
+  <div ui-layout="{ flow : 'column' }">
+        <div class="left">
+            left panel
+        </div>
+        <div class="right">
+            right panel
+        </div>
+   </ui-layout>
    
 
     <!--[if lt IE 9]>

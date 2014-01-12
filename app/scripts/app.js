@@ -7,6 +7,7 @@ var app = angular.module('favorIde', [
   'ui.ace',
   'angularBootstrapNavTree',
   'ui.sortable',
+  'ui.layout',
   'favor-keypress',
   'favor-focus'
 ]);

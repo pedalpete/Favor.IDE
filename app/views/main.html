@@ -8,7 +8,7 @@
 </div>
 <div ng-controller="OpenFilesCtrl" class='openFiles col-sm-8 on-focus'>	
 	<ul ui-sortable="sortableOptions" ng-model="files" class="nav nav-tabs" >
-			<li ng-repeat="file in files" ng-controller="EditorCtrl" ng-model="file" ng-click="setActive(file)"ng-class={'active':file.active}>
+			<li ng-repeat="file in files" ng-controller="EditorCtrl" ng-model="file" ng-click="favorClick($event,file)"ng-class={'active':file.active}>
 				<a class="tab-default"  data-toggle="tab" >{{file.name || 'untitled'}} <span ng-click="close(file)">x</span></a>
 			</li>
 	<li style="float: left;" class="disabled" ng-click="newFile()">+</li>
