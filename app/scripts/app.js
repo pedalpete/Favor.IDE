@@ -7,9 +7,9 @@ var app = angular.module('favorIde', [
   'ui.ace',
   'angularBootstrapNavTree',
   'ui.sortable',
-  'ui.layout',
   'favor-keypress',
-  'favor-focus'
+  'favor-focus',
+  'favor.resizable'
 ]);
 app.config(function ($routeProvider) {
     $routeProvider
