@@ -20,6 +20,8 @@
     <link href="styles/bootflat/css/bootflat.css" rel="stylesheet" media="screen">
     <link href="styles/bootflat/css/bootflat-extensions.css" rel="stylesheet" media="screen">
     <link href="styles/bootflat/css/bootflat-square.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="favor-packages/favor-layout/favorFlexLayout.css">
+    <link rel="stylesheet" href="favor-packages/favor-resizable/favorResizable.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/components.css">
    
@@ -32,7 +34,7 @@
 
     <!-- Add your site or application content here -->
 
-    <div class="ide-container row" ng-view=""></div>
+    <div class="ide-container favor-flex-layout favor-flex-layout-rows" ng-view=""></div>
    
 
     <!--[if lt IE 9]>
@@ -62,7 +64,6 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-ui-sortable/src/sortable.js"></script>
     <script src="bower_components/angular-ui-sortable/src/sortable.js"></script>
-    <script src="bower_components/angular-ui-layout/ui-layout.js"></script>
 
     <!-- endbower -->
     <!-- endbuild -->
@@ -83,6 +84,8 @@
         <script src="scripts/menu/menuCtrl.js"></script>
         <script src="scripts/editor/editorCtrl.js"></script>
         <script src="vendor/angular-bootstrap-nav-tree/dist/abn_tree_directive.js"></script>
+        <script src="favor-packages/favor-resizable/favorResizable.js"></script>
+
 
         <!-- endbuild -->
 
