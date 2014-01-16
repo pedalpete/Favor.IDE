@@ -21,10 +21,10 @@
 }
 .openFiles {
   position: relative;
+  ace_content: width: 100% !important;
 }
 .openFiles .editor_ctrl {
   display: none;
-  top: 35px;
 }
 .openFiles .editor_ctrl.active {
   display: flex;

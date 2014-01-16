@@ -20,6 +20,13 @@ app.factory('OpenFilesModel',function($rootScope, $q){
 		return ;
 	}
 
+	function removeFromActive(file){
+		activeFiles.splice(findFileIdx(file,activeFiles),1);
+		file.active=false;
+		changeActive(activeFiles);
+
+	}
+
 	function findMatchingFile(a,b){
 		return (a.path!='' && a.path === b.path || a.opened_at == b.opened_at);
 			
@@ -34,6 +41,7 @@ app.factory('OpenFilesModel',function($rootScope, $q){
 
 	function closeFile(file){
 		var idx = findFileIdx(file, files);
+		removeFromActive(file);
 		if(idx.length === 0){
 			console.log("something went wrong, couldn't find file to close");
 			return;
@@ -55,6 +63,7 @@ app.factory('OpenFilesModel',function($rootScope, $q){
 			files.push(file);
 			isOpen.push(files.length-1);
 		}
+		if(file.active===true) return removeFromActive(file);
 		if(multi==='click' || !multi) return changeActive(activeFiles=[file]);
 		activeFiles.push(file);
 		if(multi==='ctrl-click') return changeActive(activeFiles);
@@ -68,6 +77,7 @@ app.factory('OpenFilesModel',function($rootScope, $q){
 		return activeFiles;
 	}
 	OpenFilesObj.setActive = function(files){
+		checkifFilesAreActive
 		return changeActive(files);
 	}
 

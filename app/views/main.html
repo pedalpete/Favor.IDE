@@ -13,7 +13,7 @@
 	</ul>
 
 	<div content-area class="favor-flex-layout-item favor-flex-layout-fill">
-		<div ng-repeat="file in files" class="favor-flex-layout-item favor-flex-layout-fill">
+		<div ng-repeat="file in activeFiles" class="favor-flex-layout-item favor-flex-layout-fill">
 			<div ng-controller="EditorCtrl" ui-ace="aceOption" ng-model="file.content" class="editor_ctrl favor-flex-layout-item favor-flex-layout-fill" ng-class={'active':file.active}></div>
 		</div>
 	</div>

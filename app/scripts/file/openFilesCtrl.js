@@ -4,7 +4,7 @@ app.controller('OpenFilesCtrl',function($scope, OpenFilesModel, FileModel){
 
 	$scope.files = OpenFilesModel.files();
 	$scope.activeFiles = OpenFilesModel.activeFiles();
-	$scope.multi = 'multi-'+$scope.activeFiles.length;
+
 	$scope.newFile = function(){
 		FileModel.createFile();
 		return;
@@ -38,6 +38,10 @@ app.controller('OpenFilesCtrl',function($scope, OpenFilesModel, FileModel){
 
 	$scope.$on('updateActiveFiles',function(event,files){
 		$scope.activeFiles = files;
-		console.log($scope.activeFiles);
+		angular.forEach(files, function(file){
+			if(file.ace){
+				file.ace.env.onResize(true)
+			}
+		});
 	});
 });

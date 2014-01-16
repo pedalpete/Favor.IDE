@@ -12,6 +12,10 @@ app.controller('EditorCtrl', function ($scope, FileModel, OpenFilesModel) {
 		OpenFilesModel.close(file);
 	}
 
+	$scope.$on('ace_refresh',function(){
+		console.log(this);
+	});
+	
 	$scope.$on('fileContentChanged',function(event, file){
 		$scope.content = file.content;
 		if(!$scope.$$phase) return $scope.$apply(); //scope needs updating on opened files.
