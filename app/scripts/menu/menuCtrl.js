@@ -1,11 +1,11 @@
 'use strict';
-app.controller('MenuCtrl',function($scope, FileSystemModel){
+app.controller('MenuCtrl',function($scope, FavorFileSystemModel){
 	$scope.folder = function(){
-		if(FileSystemModel.tree_list().length==0){
+		if(FavorFileSystemModel.tree_list().length==0){
 			//nothing in the tree list, just open the file
 			document.getElementById('openFile').click();
 		} else {
-			FileSystemModel.viewFolders();
+			FavorFileSystemModel.viewFolders();
 		}
 	}
 });

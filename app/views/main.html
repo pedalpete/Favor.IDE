@@ -1,10 +1,13 @@
 
-<div class="file-navigator favor-flex-layout-item favor-resizable favor-resizable-sideways" ng-controller="FileSystemCtrl">
-		<input type="file" id="openFile" ng-model="path" ng-change="openFile()" nwdirectory />
+<div class="file-navigator favor-flex-layout-item favor-resizable favor-resizable-sideways">
+	<div  ng-controller="FavorFileSystem">
+		<input type="file" id="openFile" onchange="angular.element(this).parent().scope().openFile(this.value)" nwdirectory />
 		<input type="file" id="saveFile" class="hide" ng-model="savePath" nwsaveas ng-change="fileSaveAs()"/>
 		<abn-tree tree-data="explorer" on-select="treeSelected(branch)"></abn-tree>
+	</div>
 </div>
-<div ng-controller="OpenFilesCtrl" class='openFiles favor-flex-layout-fill favor-flex-layout-item favor-flex-layout-columns on-focus'>	
+
+<!--<div ng-controller="OpenFilesCtrl" class='openFiles favor-flex-layout-fill favor-flex-layout-item favor-flex-layout-columns on-focus'>	
 	<ul ui-sortable="sortableOptions" ng-model="files" class="nav nav-tabs" >
 			<li ng-repeat="file in files" ng-controller="EditorCtrl" ng-model="file" ng-click="favorClick($event,file)"ng-class={'active':file.active}>
 				<a class="tab-default"  data-toggle="tab" >{{file.name || 'untitled'}} <span ng-click="close(file)">x</span></a>
@@ -18,6 +21,7 @@
 		</div>
 	</div>
 </div>
+-->
 <div class="left-menu col-sm-1"ng-controller="MenuCtrl">
 		<i ng-click="folder()">&#xf07c;</i>
 </div>

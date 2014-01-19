@@ -214,21 +214,16 @@ var config = {
 		},
 		"angularModule":true
 	},
-	"filesystem":{
-		"name":"favor-filesystem",
+	"Favor.FileSystemManager":{
+		"name":"Favor.FilesystemManager",
 		"version":"0.0.1",
 		"jsPaths":[
-			"scripts/filesystem/filesystemModel.js",
-			"scripts/filesystem/filesystemCtrl.js",
-			"scripts/file/fileModel.js",
-			"scripts/file/openFilesModel.js",
-			"scripts/file/openFilesCtrl.js"
+			"favor-packages/favor-filesystem-manager/app/scripts/favorFileSystem.js",
 		],
 		"dependencies":{
 			"angular":">=1.2.x",
-			"angularBootstrapNavTree":">=0.0.6",
-			"ui.sortable":">=0.0.1"
-		}
+		},
+		"angularModule":true
 	},
 	"menu":{
 		"name":"favor-menu",
@@ -260,7 +255,8 @@ var config = {
 		],
 		"dependencies":{
 			"angular":">=1.2.x"
-		}
+		},
+		"angularModule":true
 
 	},
 	"favor.resizable":{
