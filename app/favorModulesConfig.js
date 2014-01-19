@@ -222,6 +222,18 @@ var config = {
 		],
 		"dependencies":{
 			"angular":">=1.2.x",
+			"Favor.FileManager":">=0.0.x"
+		},
+		"angularModule":true
+	},
+	"Favor.FileManager":{
+		"name":"Favor.FileManager",
+		"version":"0.0.1",
+		"jsPaths":[
+			"favor-packages/favor-files-manager/app/favorFileManager.js"
+		],
+		"dependencies":{
+			"angular":">=1.2.x",
 		},
 		"angularModule":true
 	},

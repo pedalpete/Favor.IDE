@@ -1,15 +1,15 @@
 'use strict';
 
-app.controller('EditorCtrl', function ($scope, FileModel, OpenFilesModel) {
+app.controller('EditorCtrl', function ($scope, FavorFileModel, FavorOpenFilesModel) {
 	$scope.aceOption={
 		mode:'javascript',
 		onLoad: function(_ace){
-			FileModel.ace(_ace);
+			FavorFileModel.ace(_ace);
 		}
 	}
 
 	$scope.close = function(file){
-		OpenFilesModel.close(file);
+		FavorOpenFilesModel.close(file);
 	}
 
 	$scope.$on('ace_refresh',function(){

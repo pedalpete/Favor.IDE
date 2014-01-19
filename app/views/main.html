@@ -7,7 +7,7 @@
 	</div>
 </div>
 
-<!--<div ng-controller="OpenFilesCtrl" class='openFiles favor-flex-layout-fill favor-flex-layout-item favor-flex-layout-columns on-focus'>	
+<div ng-controller="FavorOpenFilesCtrl" class='openFiles favor-flex-layout-fill favor-flex-layout-item favor-flex-layout-columns on-focus'>	
 	<ul ui-sortable="sortableOptions" ng-model="files" class="nav nav-tabs" >
 			<li ng-repeat="file in files" ng-controller="EditorCtrl" ng-model="file" ng-click="favorClick($event,file)"ng-class={'active':file.active}>
 				<a class="tab-default"  data-toggle="tab" >{{file.name || 'untitled'}} <span ng-click="close(file)">x</span></a>
@@ -21,7 +21,6 @@
 		</div>
 	</div>
 </div>
--->
 <div class="left-menu col-sm-1"ng-controller="MenuCtrl">
 		<i ng-click="folder()">&#xf07c;</i>
 </div>
