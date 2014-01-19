@@ -52,7 +52,7 @@
       favorModuleManager.buildScriptObj();
       favorModuleManager.addScriptsToPage();
       var angularModules = favorModuleManager.angularDependencies();
-         var app = angular.module('favorIde',angularModules);
+      var app = angular.module('favorIde',angularModules);
       var gui = require('nw.gui');
       var fs = require('fs');
       setTimeout(function(){
