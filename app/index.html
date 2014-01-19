@@ -15,15 +15,7 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
-    <link href="styles/bootflat/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="styles/bootflat/css/font-awesome.min.css" rel="stylesheet" media="screen">
-    <link href="styles/bootflat/css/bootflat.css" rel="stylesheet" media="screen">
-    <link href="styles/bootflat/css/bootflat-extensions.css" rel="stylesheet" media="screen">
-    <link href="styles/bootflat/css/bootflat-square.css" rel="stylesheet" media="screen">
-    <link rel="stylesheet" href="favor-packages/favor-layout/favorFlexLayout.css">
     <link rel="stylesheet" href="favor-packages/favor-resizable/favorResizable.css">
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/components.css">
    
     <!-- endbuild -->
   </head>
@@ -44,47 +36,45 @@
 
     <!-- build:js scripts/vendor.js -->
 
-    <script type="text/javascript" src="bower_components/ace-builds/src-min-noconflict/ace.js" data-ace-base="src" charset="utf-8"></script>
+   <!-- <script type="text/javascript" src="bower_components/ace-builds/src-min-noconflict/ace.js" data-ace-base="src" charset="utf-8"></script>-->
+    <script type="text/javascript" src="favorModulesConfig.js"></script>
+    <script type="text/javascript" src="favor-packages/favor-module-manager/node_modules/semver/semver.browser.js"></script>
+    <script type="text/javascript" src="favor-packages/favor-module-manager/favorModuleManagerBrowser.js"></script>
+    <script type="text/javascript" src="bower_components/jquery/jquery.min.js"></script>
+
+    <script type="text/javascript" src="bower_components/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+
 
     <script type="text/javascript">
+      window.name = "NG_DEFER_BOOTSTRAP!";
+   
+      favorModuleManager.buildScriptObj();
+      favorModuleManager.addScriptsToPage();
+      var angularModules = favorModuleManager.angularDependencies();
+         var app = angular.module('favorIde',angularModules);
       var gui = require('nw.gui');
       var fs = require('fs');
+      setTimeout(function(){
+          ace.config.set('basePath','bower_components/ace-builds/src-min-noconflict');
+          ace.config.set('modePath','bower_components/ace-builds/src-min-noconflict');
+          ace.config.set('themePath','bower_components/ace-builds/src-min-noconflict');
+          ace.config.set('workerPath','bower_components/ace-builds/src-min-noconflict');
+        },1000);
+    
 
-      ace.config.set('basePath','bower_components/ace-builds/src-min-noconflict');
-      ace.config.set('modePath','bower_components/ace-builds/src-min-noconflict');
-      ace.config.set('themePath','bower_components/ace-builds/src-min-noconflict');
-      ace.config.set('workerPath','bower_components/ace-builds/src-min-noconflict');
+        
     </script>
     <!-- bower:js -->
-    <script src="bower_components/jquery/jquery.min.js"></script>
-    <script src="bower_components/jquery-ui/ui/minified/jquery-ui.min.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-ui-sortable/src/sortable.js"></script>
-    <script src="bower_components/angular-ui-sortable/src/sortable.js"></script>
-
+    
+    
     <!-- endbower -->
     <!-- endbuild -->
       <!--  <script src="bower_components/socket.io-client/dist/socket.io.min.js"></script>-->
-        <script type="text/javascript" src="bower_components/angular-ui-ace/ui-ace.js"  data-ace-base="src" charset="utf-8"></script>
+      <!--  <script type="text/javascript" src="bower_components/angular-ui-ace/ui-ace.js"  data-ace-base="src" charset="utf-8"></script> -->
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/keypress/keypressDirective.js"></script>
-        <script src="scripts/focus/focusDirective.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/devices/devicesCtrl.js"></script>
-        <script src="scripts/devices/deviceSocketModel.js"></script>
-        <script src="scripts/filesystem/filesystemModel.js"></script>
-        <script src="scripts/file/fileModel.js"></script>
-        <script src="scripts/file/openFilesModel.js"></script>
-        <script src="scripts/file/openFilesCtrl.js"></script>
-        <script src="scripts/filesystem/filesystemCtrl.js"></script>
-        <script src="scripts/menu/menuCtrl.js"></script>
-        <script src="scripts/editor/editorCtrl.js"></script>
-        <script src="vendor/angular-bootstrap-nav-tree/dist/abn_tree_directive.js"></script>
-        <script src="favor-packages/favor-resizable/favorResizable.js"></script>
+       
+    
 
 
         <!-- endbuild -->
