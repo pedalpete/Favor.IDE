@@ -218,25 +218,35 @@ var config = {
 		"name":"Favor.FilesystemManager",
 		"version":"0.0.1",
 		"jsPaths":[
-			"favor-packages/favor-filesystem-manager/app/scripts/favorFileSystem.js",
+			"favor-packages/Favor.FileSystemManager/dist/favorFileSystem.js",
 		],
 		"dependencies":{
-			"angular":">=1.2.x",
-			"Favor.FileManager":">=0.0.x"
-		},
+			"angular":">=1.2.x"
+        },
 		"angularModule":true
 	},
 	"Favor.FileManager":{
 		"name":"Favor.FileManager",
 		"version":"0.0.1",
 		"jsPaths":[
-			"favor-packages/favor-files-manager/app/favorFileManager.js"
+			"favor-packages/Favor.FileManager/dist/favorFileManager.js"
 		],
 		"dependencies":{
-			"angular":">=1.2.x",
+			"angular":">=1.2.x"
 		},
 		"angularModule":true
 	},
+    "Favor.Search":{
+        "name":"Favor.Search",
+        "version":"0.0.1",
+        "jsPaths":[
+            "favor-packages/Favor.Search/dist/favorSearch.js"
+        ],
+        "dependencies":{
+            "angular":">=1.2.x"
+        },
+        "angularModule":true
+    },
 	"menu":{
 		"name":"favor-menu",
 		"version":"0.0.1",

@@ -1,7 +1,7 @@
-
+<favor-search-box></favor-search-box>
 <div class="file-navigator favor-flex-layout-item favor-resizable favor-resizable-sideways">
-	<div  ng-controller="FavorFileSystem">
-		<input type="file" id="openFile" onchange="angular.element(this).parent().scope().openFile(this.value)" nwdirectory />
+	<div  ng-controller="FavorFileSystemCtrl">
+		<input type="file" id="openFile" ng-model="path" ng-change="openFile()" nwdirectory />
 		<input type="file" id="saveFile" class="hide" ng-model="savePath" nwsaveas ng-change="fileSaveAs()"/>
 		<abn-tree tree-data="explorer" on-select="treeSelected(branch)"></abn-tree>
 	</div>
