@@ -3,25 +3,35 @@
   src: url("font-awesome/fontawesome-webfont.eot");
   src: url("font-awesome/fontawesome-webfont.woff") format("woff"), url("font-awesome/fontawesome-webfont.ttf") format("truetype"), url("font-awesome/fontawesome-webfont#fontawesome") format("svg");
 }
-.FillParent {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
+.favor-resizable-bar:hover {
+  width: 10px;
+  background-color: #00bfff;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  /* for vertical scrollbars */
+  height: 10px;
+  /* for horizontal scrollbars */
+}
+::-webkit-scrollbar-track {
+  display: none;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+}
+.header {
+  height: 30px;
 }
 .left-menu {
   background-color: #404040;
   color: #c0c0c0;
 }
 .left-menu i {
-  font-family: 'font-awesome';
-  font-size: 20pt;
-  padding: 15px;
+  font-size: 10pt;
+  padding: 10px;
 }
 .openFiles {
   position: relative;
-  ace_content: width: 100% !important;
 }
 .openFiles .editor_ctrl {
   display: none;
@@ -29,13 +39,20 @@
 .openFiles .editor_ctrl.active {
   display: flex;
 }
+.openFiles ace_content {
+  width: 100% !important;
+}
 .file-navigator {
   background-color: #c0c0c0;
-  overflow: hidden;
   width: 100px;
+  font-size: 10pt;
 }
 .file-navigator input[type="file"] {
   display: none;
+}
+.file-navigator .favor-resizable-container-wrapper {
+  overflow: auto;
+  scrollbar-base-color: #00bfff;
 }
 /* 
    abn-tree.css
@@ -136,4 +153,7 @@ ul.nav.nav-list.abn-tree .level-8 .indented {
 ul.nav.nav-list.abn-tree .level-9 .indented {
   position: relative;
   left: 140px;
+}
+.titleMatchesSearch {
+  color: red;
 }

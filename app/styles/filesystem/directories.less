@@ -1,13 +1,19 @@
 
 .file-navigator {
-  background-color: @light-grey;
-  overflow: hidden;
-  width: 100px;
+    background-color: @light-grey;
+    width: 100px;
+    font-size: 10pt;
 
-  input[type="file"]{
-    display: none;
-  }
+    input[type="file"]{
+        display: none;
+    }
+
+    .favor-resizable-container-wrapper {
+        overflow: auto;
+        scrollbar-base-color: @highlight-blue;
+    }
 }
+
 
 
 /* 

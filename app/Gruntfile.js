@@ -27,7 +27,7 @@ module.exports = function (grunt) {
 
 
     // Watches files for changes and runs tasks based on the changed files
-    gaze: {
+    watch: {
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js','<%= yeoman.app %>/styles/{,*/}*.less'],
         tasks: ['newer:jshint:all', 'less'],
@@ -354,7 +354,7 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-jasmine-node');
   grunt.registerTask('serve', function (target) {
@@ -371,7 +371,7 @@ module.exports = function (grunt) {
       'connect:livereload',
       'watch',
       'karma'
-    ]);Z
+    ]);
   });
 
   grunt.registerTask('server', function () {

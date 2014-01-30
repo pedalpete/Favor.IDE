@@ -1,23 +1,17 @@
+.page {
+    display: flex;
+    flex-direction: column;
+}
 .header {
   padding-left: 15px;
   padding-right: 15px;
   border-bottom: 1px solid #e5e5e5;
 }
 
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
-}
-
 .ide-container {
-  position: absolute;
-  top: 30px;
-  left: 0px;
-  bottom: 0px;
-  right: 0px;
-  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
 }
 
 .hide {

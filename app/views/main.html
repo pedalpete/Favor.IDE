@@ -1,26 +1,47 @@
-<favor-search-box></favor-search-box>
-<div class="file-navigator favor-flex-layout-item favor-resizable favor-resizable-sideways">
-	<div  ng-controller="FavorFileSystemCtrl">
-		<input type="file" id="openFile" ng-model="path" ng-change="openFile()" nwdirectory />
-		<input type="file" id="saveFile" class="hide" ng-model="savePath" nwsaveas ng-change="fileSaveAs()"/>
-		<abn-tree tree-data="explorer" on-select="treeSelected(branch)"></abn-tree>
-	</div>
+<div class="header">
+    <favor-search-box></favor-search-box>
 </div>
-
-<div ng-controller="FavorOpenFilesCtrl" class='openFiles favor-flex-layout-fill favor-flex-layout-item favor-flex-layout-columns on-focus'>	
-	<ul ui-sortable="sortableOptions" ng-model="files" class="nav nav-tabs" >
-			<li ng-repeat="file in files" ng-controller="EditorCtrl" ng-model="file" ng-click="favorClick($event,file)"ng-class={'active':file.active}>
-				<a class="tab-default"  data-toggle="tab" >{{file.name || 'untitled'}} <span ng-click="close(file)">x</span></a>
-			</li>
-	<li style="float: left;" class="disabled" ng-click="newFile()">+</li>
-	</ul>
-
-	<div content-area class="favor-flex-layout-item favor-flex-layout-fill">
-		<div ng-repeat="file in activeFiles" class="favor-flex-layout-item favor-flex-layout-fill">
-			<div ng-controller="EditorCtrl" ui-ace="aceOption" ng-model="file.content" class="editor_ctrl favor-flex-layout-item favor-flex-layout-fill" ng-class={'active':file.active}></div>
-		</div>
-	</div>
-</div>
-<div class="left-menu col-sm-1"ng-controller="MenuCtrl">
-		<i ng-click="folder()">&#xf07c;</i>
+<div class="ide-container favor-flex-layout-rows" >
+    <div class="file-navigator favor-flex-layout-item favor-resizable favor-resizable-sideways">
+        <div  ng-controller="FavorFileSystemCtrl">
+            <input type="file" id="openFile" ng-model="path" ng-change="openFile()" nwdirectory />
+            <input type="file" id="saveFile" class="hide" ng-model="savePath" nwsaveas ng-change="fileSaveAs()"/>
+            <abn-tree tree-data="explorer" ng-hide="searchTree.length" on-select="treeSelected(branch)"></abn-tree>
+            <div ng-show="searchTerm.length">
+                <div class="results">{{searchTree.length}} results match {{ searchTerm }} in {{ path }} </div>
+                <ul class="nav nav-list nav-pills nav-stacked">
+                    <li ng-repeat="file in searchTree" ng-click="treeSelected(file)">
+                        <div class="file-name">
+                           {{file.label.substr(0, file.label.lastIndexOf("."))}}
+                            <span class="extension">
+                                {{file.label.split('.')[-1]}}
+                            </span>
+                        </div>
+                        <div class="file-path">{{file.path.replace(path,'')}}</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div ng-controller="FavorOpenFilesCtrl" class='openFiles favor-flex-layout-fill favor-flex-layout-item favor-flex-layout-columns on-focus'>	
+        <ul ui-sortable="sortableOptions" ng-model="files" class="nav nav-tabs nav-square" >
+                <li ng-repeat="file in files" ng-controller="EditorCtrl" ng-model="file" ng-click="favorClick($event,file)" ng-class="{'active':file.active, 'titleMatchesSearch': file.fileNameMatch>=0}"}>
+                    <a class="tab-default"  data-toggle="tab" >
+                        <span class="title">{{file.name || 'untitled'}}</span>
+                         <span class="badge badge-square" ng-show="{contentMatchesFound>0}">{{file.contentMatchesFound}}</span>
+                        <i class="fa fa-times" ng-click="close(file)"></i></a>
+                </li>
+        <li style="float: left;" class="disabled" ng-click="newFile()"><i class="fa fa-plus"></i></li>
+        </ul>
+    
+        <div content-area class="favor-flex-layout-item favor-flex-layout-fill">
+            <div ng-repeat="file in activeFiles" class="favor-flex-layout-item favor-flex-layout-fill">
+                <div ng-controller="EditorCtrl" ui-ace="aceOption" ng-model="file.content" class="editor_ctrl favor-flex-layout-item favor-flex-layout-fill" ng-class={'active':file.active}></div>
+            </div>
+        </div>
+    </div>
+    <div class="left-menu col-sm-1"ng-controller="MenuCtrl">
+            <i class="fa fa-folder-open" ng-click="folder()"></i>
+    </div>
 </div>

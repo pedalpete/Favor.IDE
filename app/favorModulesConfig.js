@@ -7,7 +7,7 @@ var config = {
 		"templatePaths": [
 		],
 		"cssPaths": [
-			"styles/bootflat/bootstrap/bootstrap.min.css"
+			"vendor/bootflat/bootstrap/bootstrap.min.css"
 		],
 		"dependencies" :{
 		}
@@ -20,7 +20,7 @@ var config = {
 		"templatePaths": [
 		],
 		"cssPaths": [
-			"styles/bootflat/css/font-awesome.min.css"
+			"vendor/bootflat/css/font-awesome.min.css"
 		],
 		"dependencies" :{
 		}
@@ -33,7 +33,7 @@ var config = {
 		"templatePaths": [
 		],
 		"cssPaths": [
-			"styles/bootflat/css/bootflat.css"
+			"vendor/bootflat/css/bootflat.css"
 		],
 		"dependencies" :{
 			"bootstrap": ">=3.0.x",
@@ -48,7 +48,7 @@ var config = {
 		"templatePaths": [
 		],
 		"cssPaths": [
-			"styles/bootflat/css/bootflat-extensions.css"
+			"vendor/bootflat/css/bootflat-extensions.css"
 		],
 		"dependencies" :{
 			"bootflat": ">=1.0.x",
@@ -62,7 +62,7 @@ var config = {
 		"templatePaths": [
 		],
 		"cssPaths": [
-			"styles/bootflat/css/bootflat-square.css"
+			"vendor/bootflat/css/bootflat-square.css"
 		],
 		"dependencies" :{
 			"bootflat": ">=1.0.x",
